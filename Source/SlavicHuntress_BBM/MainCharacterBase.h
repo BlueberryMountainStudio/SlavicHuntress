@@ -3,6 +3,8 @@
 #pragma once
 
 #include "Components/SphereComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
@@ -19,6 +21,12 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		TObjectPtr<USphereComponent> interactionRange;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+		TObjectPtr<USpringArmComponent> cameraBoom;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+		TObjectPtr<UCameraComponent> camera;
 
 protected:
 	// Called when the game starts or when spawned
