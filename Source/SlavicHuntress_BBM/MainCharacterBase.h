@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "Components/SphereComponent.h"
+
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "MainCharacterBase.generated.h"
@@ -14,6 +16,9 @@ class SLAVICHUNTRESS_BBM_API AMainCharacterBase : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AMainCharacterBase();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+		TObjectPtr<USphereComponent> interactionRange;
 
 protected:
 	// Called when the game starts or when spawned
