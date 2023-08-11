@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "Materials/Material.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "FoeBase.generated.h"
@@ -15,9 +16,19 @@ public:
 	// Sets default values for this actor's properties
 	AFoeBase();
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+//UPROPERTIES
+
+	//ART
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Art")
 		TObjectPtr<USkeletalMeshComponent> mesh;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Art")
+		UMaterial* highlightMat = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Art")
+		UMaterial* hoverMat = nullptr;
+
+	//GAMEDESIGN
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameDesign")
 		float maxHealth = 100;
 
@@ -39,8 +50,19 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 		float currentHealth = 1000;
 
+	//CODE
 	UPROPERTY(BlueprintReadWrite)
-		bool hovered = 0;
+		bool highlighted = false;
+
+	UPROPERTY(BlueprintReadWrite)
+		bool hovered = false;
+
+	//UFUNCTIONS
+	UFUNCTION(BlueprintCallable)
+		void Highlight(bool shouldHighlight);
+
+	UFUNCTION(BlueprintCallable)
+		void Hover(bool shouldHighlight);
 
 private:
 
