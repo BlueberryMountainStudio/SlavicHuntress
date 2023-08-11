@@ -27,6 +27,43 @@ AFoeBase::AFoeBase()
 	}
 }
 
+void AFoeBase::Highlight(bool shouldHighlight)
+{
+	if (shouldHighlight == true)
+	{
+		mesh->SetOverlayMaterial(highlightMat);
+		highlighted = true;
+	}
+	else
+	{
+		mesh->SetOverlayMaterial(nullptr);
+		highlighted = false;
+		hovered = false;
+	}
+	
+}
+
+void AFoeBase::Hover(bool shouldHover)
+{
+	if (shouldHover == true)
+	{
+		mesh->SetOverlayMaterial(hoverMat);
+		hovered = true;
+	}
+	else
+	{
+		if (highlighted)
+		{
+			mesh->SetOverlayMaterial(highlightMat);
+		}
+		else {
+			mesh->SetOverlayMaterial(nullptr);
+			hovered = false;
+		}
+	}
+
+}
+
 // Called when the game starts or when spawned
 void AFoeBase::BeginPlay()
 {
