@@ -48,7 +48,7 @@ public:
 		float headMultiplier = 0;
 
 	UPROPERTY(BlueprintReadWrite)
-		float currentHealth = 1000;
+		float currentHealth = maxHealth;
 
 	//CODE
 	UPROPERTY(BlueprintReadWrite)
